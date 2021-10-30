@@ -10,6 +10,7 @@ export class CoursesPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('..');
   }
 
 }
