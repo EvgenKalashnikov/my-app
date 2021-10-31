@@ -1,27 +1,31 @@
-<div class="container bg-white my-2">
-  <div class="row container">
-    <div class="col-6">
-      <p class="h5 text-dark mt-2">{{cource.title}}</p>
+<div [ngClass]="[course.topRelated ? '':'bg-white', isOutdate(course.creationDate)]"
+     class="container  my-2">
+  <div>
+    <div class="row container">
+      <div class="col-6">
+        <p class="h5 text-dark mt-2">{{course.title | uppercase}}  <i *ngIf="course.topRelated" class="fa fa-star"></i>
+        </p>
+      </div>
+      <div class="col-6 row">
+        <div class="col-4"></div>
+        <div class="col-4"><p class="text-secondary"><i
+          class="fa fa-clock-o"> </i> {{ course.duration | date:'hh\'h\' mm\'min\' '}}</p></div>
+        <div class="col-4"><p class="text-secondary"><i
+          class="fa fa-clock-o"> </i> {{ course.creationDate | date:'shortDate'}}</p></div>
+      </div>
     </div>
-    <div class="col-6 row">
-      <div class="col-4"></div>
-      <div class="col-4"><p class="text-secondary"><i
-        class="fa fa-clock-o"> </i> {{ cource.duration | date:'hh\'h\' mm\'min\' '}}</p></div>
-      <div class="col-4"><p class="text-secondary"><i
-        class="fa fa-clock-o"> </i> {{ cource.creationDate | date:'shortDate'}}</p></div>
-    </div>
-  </div>
-  <div class="row container">
-    <div class="col-9">
-      <p class="text-secondary">{{cource.description}}</p>
-    </div>
-    <div class="col-3">
-      <div class="row justify-content-end">
-        <button type="button" class="btn btn-outline-info btn-sm pull-right mb-3 mr-3"><i class="fa fa-pencil"></i>Edit
-        </button>
-        <button type="button" class="btn btn-outline-info btn-sm pull-right mb-3" (click)="deleteCourse(cource.id)"><i
-          class="fa fa-trash"></i> Delete
-        </button>
+    <div class="row container">
+      <div class="col-9">
+        <p class="text-secondary">{{course.description}}</p>
+      </div>
+      <div class="col-3">
+        <div class="row justify-content-end">
+          <button type="button" class="btn btn-outline-info btn-sm pull-right mb-3 mr-3"><i class="fa fa-pencil"></i>Edit
+          </button>
+          <button type="button" class="btn btn-outline-info btn-sm pull-right mb-3" (click)="deleteCourse(course.id)"><i
+            class="fa fa-trash"></i> Delete
+          </button>
+        </div>
       </div>
     </div>
   </div>

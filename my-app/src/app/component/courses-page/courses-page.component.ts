@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {CourseTypescript} from '../../model/course-typescript';
+import {OrderByPipe} from '../../pipe/order-by.pipe';
 
 @Component({
   selector: 'app-courses-page',
@@ -8,41 +9,39 @@ import {CourseTypescript} from '../../model/course-typescript';
 })
 export class CoursesPageComponent implements OnInit {
 
-  couceses: CourseTypescript[];
+  courses: CourseTypescript[];
   searchString: string;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.couceses = [
+    this.courses = new OrderByPipe().transform([
       {
         id: '1',
         title: 'Video Course 1. Name First',
-        creationDate: 1635681236640,
+        creationDate: Date.now() + 1000 * 60 * 60 * 24 * 15,
         duration: 33,
-        description: 'Start Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college\'s classes. They\'re published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.'
+        description: 'Start Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college\'s classes. They\'re published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.',
+        topRelated: true
       },
       {
         id: '2',
         title: 'Video Course 2. Name Second',
-        creationDate: 1635681236640,
+        creationDate: Date.now() - 1000 * 60 * 60 * 24 * 15,
         duration: 33,
-        description: 'Then Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college\'s classes. They\'re published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.'
+        description: 'Then Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college\'s classes. They\'re published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.',
+        topRelated: true
       },
       {
         id: '3',
         title: 'Video Course 3. Name Third',
-        creationDate: 1635681236640,
+        creationDate: Date.now() - 1000 * 60 * 60 * 24 * 2,
         duration: 33,
-        description: 'After Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college\'s classes. They\'re published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.'
+        description: 'After Learn about where you can find course descriptions, what information they include, how they work, and details about various components of a course description. Course descriptions report information about a university or college\'s classes. They\'re published both in course catalogs that outline degree requirements and in course schedules that contain descriptions for all courses offered during a particular semester.',
+        topRelated: false
       }
-    ];
-  }
-
-  searchingConsoleResult(): void {
-    console.log(this.couceses.filter(s => s.title.toLowerCase().includes(this.searchString.toLowerCase())
-      || s.description.toLowerCase().includes(this.searchString.toLowerCase())));
+    ], true);
   }
 
   showMoreCouses(): void {
@@ -50,6 +49,6 @@ export class CoursesPageComponent implements OnInit {
   }
 
   deleteCourseById(courseId: string): void {
-    this.couceses = this.couceses.filter(s => s.id !== courseId);
+    this.courses = this.courses.filter(s => s.id !== courseId);
   }
 }

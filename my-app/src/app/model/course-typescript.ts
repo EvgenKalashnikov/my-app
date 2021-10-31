@@ -4,4 +4,5 @@ export interface CourseTypescript {
   creationDate: number;
   duration: number;
   description: string;
+  topRelated: boolean;
 }
