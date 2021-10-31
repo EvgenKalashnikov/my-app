@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {CourseTypescript} from '../../model/course-typescript';
 
 @Component({
   selector: 'app-course',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  cource: CourseTypescript;
+  @Output() deleteOne = new EventEmitter<string>();
+
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  deleteCourse(courseId: string): void {
+    this.deleteOne.emit(courseId);
   }
 
 }

@@ -1,6 +1,10 @@
-<nav class="navbar my-header fixed-top">
-  <div class="container">
+<nav class="navbar my-header fixed-top ">
+  <div class="container justify-content-between">
+    <app-logo></app-logo>
+    <div>
+      <button class="btn btn-link mx-2"><i class="fa fa-user"></i> {{user.firstname + ' ' + user.lastname}}</button>
+      <button class="btn btn-link mx-2"><i class="fa fa-sign-out"></i> Log out</button>
+    </div>
 
-  <app-logo></app-logo>
   </div>
 </nav>
