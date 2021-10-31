@@ -10,7 +10,8 @@ export class CourseComponent implements OnInit {
 
   @Input()
   cource: CourseTypescript;
-  @Output() deleteOne = new EventEmitter<string>();
+  @Output()
+  deleteOne = new EventEmitter<string>();
 
   constructor() {
   }
