@@ -10,7 +10,7 @@ describe('CoursesPageComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [CoursesPageComponent, CourseFilterPipe],
-      providers: [{provide: CourseFilterPipe, useValue: new CourseFilterPipe()}]
+      providers: [{ provide: CourseFilterPipe, useValue: new CourseFilterPipe() }]
     })
       .compileComponents();
   });

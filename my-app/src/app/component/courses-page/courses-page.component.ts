@@ -51,4 +51,7 @@ export class CoursesPageComponent implements OnInit {
   deleteCourseById(courseId: string): void {
     this.courses = this.courses.filter(s => s.id !== courseId);
   }
+  identifyCourse(index: number, course: CourseTypescript): string {
+    return course.title;
+  }
 }

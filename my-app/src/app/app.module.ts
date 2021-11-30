@@ -10,6 +10,7 @@ import {CourseFilterPipe} from './pipe/course-filter.pipe';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
+import { OutdatedBorderDirective } from './directive/Outdated-border.directive';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {FormsModule} from '@angular/forms';
     CourseComponent,
     OrderByPipe,
     CourseFilterPipe,
+    OutdatedBorderDirective,
   ],
   imports: [
     BrowserModule,

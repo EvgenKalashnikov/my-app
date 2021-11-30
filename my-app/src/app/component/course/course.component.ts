@@ -23,7 +23,7 @@ export class CourseComponent implements OnInit {
     this.deleteOne.emit(courseId);
   }
 
-  isOutdate(createdDate: number): string {
+  isOutdated(createdDate: number): string {
     if (createdDate < Date.now() && createdDate >= Date.now() - 1000 * 60 * 60 * 24 * 14) {
       return 'border border-success';
     } else if (createdDate > Date.now()) {

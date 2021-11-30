@@ -1,10 +1,10 @@
-<div [ngClass]="[course.topRelated ? '':'bg-white', isOutdate(course.creationDate)]"
-     class="container  my-2">
+<div [ngClass]="[course.topRelated ? '':'bg-white']"
+     [appOutdatedBorder]="course.creationDate"
+     class="container my-2">
   <div>
     <div class="row container">
       <div class="col-6">
-        <p class="h5 text-dark mt-2">{{course.title | uppercase}}  <i *ngIf="course.topRelated" class="fa fa-star"></i>
-        </p>
+        <p class="h5 text-dark mt-2">{{course.title | uppercase}}  <i *ngIf="course.topRelated" class="fa fa-star"></i></p>
       </div>
       <div class="col-6 row">
         <div class="col-4"></div>
